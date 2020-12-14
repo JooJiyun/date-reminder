@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddAlarmActivity"
-            android:theme="@style/Transparent"></activity>
+        <activity
+            android:name=".PickAlarmTypeActivity"
+            android:theme="@style/Transparent"/>
+        <activity
+            android:name=".AddAlarmDateActivity"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".AddAlarmLastActivity"
+            android:theme="@style/Transparent" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

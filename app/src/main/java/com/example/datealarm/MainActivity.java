@@ -1,6 +1,5 @@
 package com.example.datealarm;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         main_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AddAlarmActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PickAlarmTypeActivity.class);
                 startActivity(intent);
             }
         });

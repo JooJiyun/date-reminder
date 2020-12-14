@@ -3,19 +3,16 @@ package com.example.datealarm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddAlarmActivity extends AppCompatActivity {
+public class AddAlarmDateActivity extends AppCompatActivity {
 
     EditText add_name, add_year, add_month, add_day;
     Button add_insert;
@@ -23,7 +20,7 @@ public class AddAlarmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_alarm);
+        setContentView(R.layout.activity_add_alarm_date);
 
 
         add_name = findViewById(R.id.add_name);
@@ -49,18 +46,12 @@ public class AddAlarmActivity extends AppCompatActivity {
                     return;
                 }
 
+                String DDay = String.format("%4d.%2d.%2d", Integer.parseInt(add_year.getText().toString()),Integer.parseInt(add_month.getText().toString()),Integer.parseInt(add_day.getText().toString()));
 
-                Calendar cal = Calendar.getInstance();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                cal.setTime(new Date());
-                cal.add(Calendar.YEAR, Integer.parseInt(add_year.getText().toString()));
-                cal.add(Calendar.MONDAY, Integer.parseInt(add_month.getText().toString()));
-                cal.add(Calendar.DATE, Integer.parseInt(add_day.getText().toString()));
-
-
-                dbHelper.insert(name, dateFormat.format(cal.getTime()).toString());
+                dbHelper.insert(name, DDay);
                 finish();
             }
         });
+
     }
 }

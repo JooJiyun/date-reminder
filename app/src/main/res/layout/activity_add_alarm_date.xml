@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddAlarmDateActivity"
     android:background="@android:color/transparent"
-    tools:context=".AddAlarmLastActivity"
     android:orientation="vertical"
-    android:layout_gravity="center">
+    android:gravity="center">
 
     <LinearLayout
         android:gravity="center_horizontal"
@@ -39,13 +39,13 @@
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/add_year"
-                android:layout_width="30dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:text="0"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="년 후"/>
+                android:text="년"/>
 
             <EditText
                 android:id="@+id/add_month"
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="월 후"/>
+                android:text="월"/>
 
             <EditText
                 android:id="@+id/add_day"
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="일 후"/>
+                android:text="일"/>
         </LinearLayout>
 
 

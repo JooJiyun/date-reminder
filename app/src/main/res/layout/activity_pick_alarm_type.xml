@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PickAlarmTypeActivity"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="알림 타입 설정\n"/>
+
+        <Button
+            style="?android:borderlessButtonStyle"
+            android:drawableLeft="@drawable/ic_baseline_check_24"
+            android:id="@+id/pick_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="날짜로 D-day 설정"/>
+
+
+        <Button
+            style="?android:borderlessButtonStyle"
+            android:drawableLeft="@drawable/ic_baseline_check_24"
+            android:id="@+id/pick_last"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="기간으로 D-day 설정"/>
+
+        <Button
+            style="?android:borderlessButtonStyle"
+            android:drawableLeft="@drawable/ic_baseline_check_24"
+            android:id="@+id/pick_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="주기로 D-day 설정"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

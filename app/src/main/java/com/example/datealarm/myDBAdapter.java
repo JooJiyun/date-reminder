@@ -61,7 +61,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
             long calDays = calDate/(24*60*60*1000);
 
             if(calDays<0){
-                list_last.setText("예정일이 지났습니다.");
+                list_last.setText("D+"+Math.abs(calDays));
             }
             else{
                 list_last.setText("D-"+calDays);
