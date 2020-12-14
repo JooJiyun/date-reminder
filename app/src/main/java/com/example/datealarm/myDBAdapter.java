@@ -1,6 +1,10 @@
 package com.example.datealarm;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +17,7 @@ import androidx.annotation.Nullable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -47,6 +52,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
         myDB list_db = (myDB)getItem(position);
         list_name.setText(list_db.getName());
         list_date.setText(list_db.getDate());
+        int list_color = list_db.getIcon_color();
 
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy.MM.dd");
@@ -71,6 +77,15 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
 
 
         Button btn = convertView.findViewById(R.id.list_delete);
+        Button btn_color = convertView.findViewById(R.id.list_icon);
+
+        for (Drawable drawable : btn_color.getCompoundDrawables()) {
+            if (drawable != null) {
+                drawable.setColorFilter(new PorterDuffColorFilter(list_color, PorterDuff.Mode.SRC_IN));
+            }
+        }
+
+
         btn.setTag(position);
         btn.setOnClickListener(this);
 

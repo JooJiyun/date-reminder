@@ -1,5 +1,6 @@
 package com.example.datealarm;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
     Button main_add;
     mySQLiteOpenHelper dbHelper;
     ArrayList dbList = null;
+    String chg_target;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
             }
         });
 
+
+
     }
 
     public void update_list(){
@@ -64,13 +68,28 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
     @Override
     public void onListBtnClick(int position, int resourceid){
         myDB selected = (myDB)dbList.get(position);
+        chg_target = selected.getName();
 
         switch (resourceid){
             case R.id.list_delete:
                 dbHelper.delete(selected.getName());
                 break;
+            case R.id.list_alarm:
+                //dbHelper.change_color(selected.getName(), );
+                break;
+            case R.id.list_icon:
+                Intent intent = new Intent(getApplicationContext(), PickColorActivity.class);
+                startActivityForResult(intent, 0);
+                break;
         }
         update_list();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        int ret_color = data.getExtras().getInt("target_color",0);
+        dbHelper.change_color(chg_target, ret_color);
+    }
 }

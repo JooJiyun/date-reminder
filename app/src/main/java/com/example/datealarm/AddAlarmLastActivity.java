@@ -3,12 +3,9 @@ package com.example.datealarm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -23,7 +20,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_alarm);
+        setContentView(R.layout.activity_add_alarm_last);
 
 
         add_name = findViewById(R.id.add_name);

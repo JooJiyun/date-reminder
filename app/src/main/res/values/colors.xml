@@ -4,4 +4,19 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="transparent">#1A000000</color>
+    <color name="colorPick1">#CF8F8F</color>
+    <color name="colorPick2">#D3886B</color>
+    <color name="colorPick3">#DACC71</color>
+    <color name="colorPick4">#91E45F</color>
+    <color name="colorPick5">#64DFC6</color>
+    <color name="colorPick6">#90C5E8</color>
+    <color name="colorPick7">#F7B7AEE1</color>
+    <color name="colorPick8">#4074CF</color>
+    <color name="colorPick9">#BD97FA</color>
+    <color name="colorPick10">#D1A1DF</color>
+    <color name="colorPick11">#DD47BC</color>
+    <color name="colorPick12">#B0EAD7D7</color>
+    <color name="colorPick13">#796580</color>
+    <color name="colorPick14">#646F7C</color>
+    <color name="colorPick15">#7A8A7A</color>
 </resources>

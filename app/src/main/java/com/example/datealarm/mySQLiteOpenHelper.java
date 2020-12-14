@@ -16,17 +16,24 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE ALARM (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT );");
+        db.execSQL("DROP TABLE IF EXISTS ALARM");
+        db.execSQL("CREATE TABLE ALARM (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT, color INT );");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS ALARM");
+        onCreate(db);
     }
 
+    public void insert(String name, String date, int i_color){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("INSERT INTO ALARM VALUES(null, '" + name + "','"+ date  + "'," + i_color + ");");
+        db.close();
+    }
     public void insert(String name, String date){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO ALARM VALUES(null, '"+name+ "','"+date  + "');");
+        db.execSQL("INSERT INTO ALARM VALUES(null, '" + name + "','"+ date  + "');");
         db.close();
     }
 
@@ -44,5 +51,10 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
             result.add(new myDB(cursor.getString(1), cursor.getString(2)));
         }
         return result;
+    }
+
+    public void change_color(String name, int i_color){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE ALARM SET color = " +i_color+ " WHERE name = '"+name+"'");
     }
 }
