@@ -14,7 +14,7 @@
             <Button
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:drawableTop="@drawable/ic_brush_24"
+                android:drawableTop="@drawable/ic_color_lens_24"
                 android:id="@+id/list_icon"
                 style="?android:borderlessButtonStyle"
                 android:drawableTint="@color/colorPrimary"/>

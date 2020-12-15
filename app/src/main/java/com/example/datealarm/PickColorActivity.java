@@ -126,7 +126,7 @@ public class PickColorActivity extends AppCompatActivity {
 
 
         Intent data = new Intent();
-        data.putExtra("target_color", 0);
+        data.putExtra("target_color", -16777216);
         setResult(0, data);
     }
 

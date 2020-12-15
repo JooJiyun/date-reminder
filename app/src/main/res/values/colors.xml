@@ -18,7 +18,7 @@
     <color name="colorPick12">#B0EAD7D7</color>
     <color name="colorPick13">#796580</color>
     <color name="colorPick14">#646F7C</color>
-    <color name="colorPick15">#7A8A7A</color>
+    <color name="colorPick15">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
 </resources>

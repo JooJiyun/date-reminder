@@ -32,7 +32,7 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
     }
     public void insert(String name, String date){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO ALARM VALUES(null, '" + name + "','"+ date  + "', 0);");
+        db.execSQL("INSERT INTO ALARM VALUES(null, '" + name + "','"+ date  + "', -16777216);");
         db.close();
     }
 

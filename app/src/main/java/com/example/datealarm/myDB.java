@@ -11,7 +11,7 @@ public class myDB {
     public myDB(String name, String date) {
         this.name = name;
         this.date = date;
-        this.color = 0;
+        this.color = -16777216;
     }
 
     public myDB(String name, String date, int color) {

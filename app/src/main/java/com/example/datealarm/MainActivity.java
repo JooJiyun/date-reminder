@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
             }
         });
 
-
     }
 
     public void update_list(){
@@ -76,10 +75,10 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
                 break;
             case R.id.list_alarm:
                 //dbHelper.change_color(selected.getName(), );
-                Toast.makeText(getApplicationContext(), "알람 변경.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "알람 변경",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.list_icon:
-                Toast.makeText(getApplicationContext(), "색상 변경.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "색상 변경",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PickColorActivity.class);
                 startActivityForResult(intent, 0);
                 break;
@@ -91,8 +90,10 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        int ret_color = data.getExtras().getInt("target_color",0);
+        int ret_color = data.getExtras().getInt("target_color",-16777216);
+        if(ret_color!=-16777216){
+            dbHelper.change_color(chg_target, ret_color);
+        }
 
-        dbHelper.change_color(chg_target, ret_color);
     }
 }
