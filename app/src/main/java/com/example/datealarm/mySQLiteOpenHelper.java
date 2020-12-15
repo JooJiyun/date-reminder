@@ -16,7 +16,6 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS ALARM");
         db.execSQL("CREATE TABLE ALARM (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, date TEXT, color INT );");
     }
 
@@ -33,7 +32,7 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
     }
     public void insert(String name, String date){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO ALARM VALUES(null, '" + name + "','"+ date  + "');");
+        db.execSQL("INSERT INTO ALARM VALUES(null, '" + name + "','"+ date  + "', 0);");
         db.close();
     }
 
@@ -48,7 +47,7 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
         ArrayList result = new ArrayList<myDB>();
         Cursor cursor = db.rawQuery("SELECT * FROM ALARM",null);
         while(cursor.moveToNext()){
-            result.add(new myDB(cursor.getString(1), cursor.getString(2)));
+            result.add(new myDB(cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
         }
         return result;
     }

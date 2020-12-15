@@ -52,7 +52,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
         myDB list_db = (myDB)getItem(position);
         list_name.setText(list_db.getName());
         list_date.setText(list_db.getDate());
-        int list_color = list_db.getIcon_color();
+        int list_color = list_db.getColor();
 
         Date now = new Date(System.currentTimeMillis());
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy.MM.dd");
@@ -78,6 +78,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
 
         Button btn = convertView.findViewById(R.id.list_delete);
         Button btn_color = convertView.findViewById(R.id.list_icon);
+        Button btn_alarm = convertView.findViewById(R.id.list_alarm);
 
         for (Drawable drawable : btn_color.getCompoundDrawables()) {
             if (drawable != null) {
@@ -88,6 +89,12 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
 
         btn.setTag(position);
         btn.setOnClickListener(this);
+
+        btn_color.setTag(position);
+        btn_color.setOnClickListener(this);
+
+        btn_alarm.setTag(position);
+        btn_alarm.setOnClickListener(this);
 
 
         return convertView;

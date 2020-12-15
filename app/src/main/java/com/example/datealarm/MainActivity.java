@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         main_add = findViewById(R.id.main_add);
 
 
-        dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,1);
+        dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,2);
 
         update_list();
 
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
                 startActivity(intent);
             }
         });
-
 
 
     }
@@ -76,8 +76,10 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
                 break;
             case R.id.list_alarm:
                 //dbHelper.change_color(selected.getName(), );
+                Toast.makeText(getApplicationContext(), "알람 변경.",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.list_icon:
+                Toast.makeText(getApplicationContext(), "색상 변경.",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PickColorActivity.class);
                 startActivityForResult(intent, 0);
                 break;
@@ -90,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         super.onActivityResult(requestCode, resultCode, data);
 
         int ret_color = data.getExtras().getInt("target_color",0);
+
         dbHelper.change_color(chg_target, ret_color);
     }
 }
