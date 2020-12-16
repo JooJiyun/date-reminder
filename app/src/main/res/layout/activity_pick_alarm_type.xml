@@ -41,14 +41,6 @@
             android:textSize="20sp"
             android:text="기간으로 D-day 설정"/>
 
-        <Button
-            style="?android:borderlessButtonStyle"
-            android:drawableLeft="@drawable/ic_baseline_check_24"
-            android:id="@+id/pick_period"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="주기로 D-day 설정"/>
 
     </LinearLayout>
 
