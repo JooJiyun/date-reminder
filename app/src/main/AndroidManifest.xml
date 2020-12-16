@@ -14,9 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AlarmOptionActivity"
-            android:theme="@style/Transparent" />
-        <activity
             android:name=".PickColorActivity"
             android:theme="@style/Transparent" />
         <activity

@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         builder.setAutoCancel(true);
 
 
+
         NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationManager.createNotificationChannel(new NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT));
