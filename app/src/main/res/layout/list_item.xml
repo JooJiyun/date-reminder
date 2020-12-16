@@ -73,12 +73,12 @@
             <Button
                 android:layout_alignParentRight="true"
                 style="?android:borderlessButtonStyle"
-                android:drawableTop="@drawable/ic_alarm_24"
+                android:drawableTop="@drawable/ic_baseline_add_24"
                 android:id="@+id/list_alarm"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:text="알람"/>
+                android:textSize="9sp"
+                android:text="상단바"/>
             <Button
                 android:layout_alignParentRight="true"
                 style="?android:borderlessButtonStyle"

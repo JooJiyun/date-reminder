@@ -22,14 +22,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm_last);
 
-
-        add_name = findViewById(R.id.add_name);
         add_insert = findViewById(R.id.add_insert);
-
-        add_year = findViewById(R.id.add_year);
-        add_month = findViewById(R.id.add_month);
-        add_day = findViewById(R.id.add_day);
-
 
         final mySQLiteOpenHelper dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,2);
 
@@ -39,6 +32,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                 add_year = findViewById(R.id.add_year);
                 add_month = findViewById(R.id.add_month);
                 add_day = findViewById(R.id.add_day);
+                add_name = findViewById(R.id.add_name);
                 String name = add_name.getText().toString();
 
                 if(name == null || name.trim().length() == 0){

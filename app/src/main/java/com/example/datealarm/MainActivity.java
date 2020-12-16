@@ -2,8 +2,17 @@ package com.example.datealarm;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +20,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements myDBAdapter.ListBtnClickListener {
 
@@ -23,10 +34,14 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
     ArrayList dbList = null;
     String chg_target;
 
+    Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = this;
 
 
         main_today = findViewById(R.id.main_today);
@@ -74,8 +89,15 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
                 dbHelper.delete(selected.getName());
                 break;
             case R.id.list_alarm:
-                //dbHelper.change_color(selected.getName(), );
-                Toast.makeText(getApplicationContext(), "알람 변경",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "notification 추가",Toast.LENGTH_SHORT).show();
+
+                String title = selected.getName();
+                String date = selected.getDate();
+                int color = selected.getColor();
+
+
+                createNotification(title, date, color);
+
                 break;
             case R.id.list_icon:
                 Toast.makeText(getApplicationContext(), "색상 변경",Toast.LENGTH_SHORT).show();
@@ -96,4 +118,47 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         }
 
     }
+
+
+    private void createNotification(String title, String date, int color) {
+
+        String D_dayText = "";
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy.MM.dd");
+        String today = dateFormat.format(now);
+        try {
+            Date firstDate = dateFormat.parse(today);
+            Date secondDate = dateFormat.parse(date);
+
+            long calDate = secondDate.getTime()-firstDate.getTime();
+            long calDays = calDate/(24*60*60*1000);
+
+            if(calDays<0){
+                D_dayText = "D+"+Math.abs(calDays);
+            }
+            else{
+                D_dayText = "D-"+calDays;
+            }
+
+        }catch(ParseException e){}
+
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
+
+        builder.setSmallIcon(R.drawable.ic_callendar_24);
+        builder.setColor(color);
+        builder.setContentTitle(title + " " + D_dayText);
+        builder.setAutoCancel(true);
+
+
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.createNotificationChannel(new NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT));
+        }
+
+        int this_channel = (int)(System.currentTimeMillis()/1000);
+
+        notificationManager.notify(this_channel, builder.build());
+    }
+
 }
