@@ -14,13 +14,15 @@
         android:layout_alignParentTop="true"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorWhite">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="알림 타입 설정\n"/>
+            android:text="\n알림 타입 설정\n"
+            android:textColor="@color/colorBlack"/>
 
         <Button
             style="?android:borderlessButtonStyle"
@@ -29,7 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="날짜로 D-day 설정"/>
+            android:text="날짜로 D-day 설정"
+            android:drawableTint="@color/colorBlack"
+            android:textColor="@color/colorBlack"/>
 
 
         <Button
@@ -39,7 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="기간으로 D-day 설정"/>
+            android:text="기간으로 D-day 설정"
+            android:drawableTint="@color/colorBlack"
+            android:textColor="@color/colorBlack"/>
 
 
     </LinearLayout>
