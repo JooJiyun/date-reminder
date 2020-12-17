@@ -96,13 +96,18 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
                 int color = selected.getColor();
 
 
-                createNotification(title, date, color);
+                createNotification(title, date, color, position);
 
                 break;
             case R.id.list_icon:
                 Toast.makeText(getApplicationContext(), "색상 변경",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PickColorActivity.class);
                 startActivityForResult(intent, 0);
+                break;
+
+            case R.id.list_notifyRemove:
+                Toast.makeText(getApplicationContext(), "notification 제거",Toast.LENGTH_SHORT).show();
+                removeNotification(position);
                 break;
         }
         update_list();
@@ -120,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
     }
 
 
-    private void createNotification(String title, String date, int color) {
+    private void createNotification(String title, String date, int color, int _id) {
 
         String D_dayText = "";
         Date now = new Date(System.currentTimeMillis());
@@ -149,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         builder.setColor(color);
         builder.setContentTitle(title + " " + D_dayText);
         builder.setAutoCancel(true);
-
+        builder.setOngoing(true);
 
 
         NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -157,9 +162,16 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
             notificationManager.createNotificationChannel(new NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT));
         }
 
-        int this_channel = (int)(System.currentTimeMillis()/1000);
+        notificationManager.notify(_id, builder.build());
+    }
 
-        notificationManager.notify(this_channel, builder.build());
+    private void removeNotification(int _id){
+        NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationManager.createNotificationChannel(new NotificationChannel("default", "기본 채널", NotificationManager.IMPORTANCE_DEFAULT));
+        }
+
+        notificationManager.cancel(_id);
     }
 
 }

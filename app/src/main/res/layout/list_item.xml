@@ -73,20 +73,29 @@
             <Button
                 android:layout_alignParentRight="true"
                 style="?android:borderlessButtonStyle"
+                android:drawableTop="@drawable/ic_remove_24"
+                android:id="@+id/list_notifyRemove"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:textSize="7sp"
+                android:text="상단바"/>
+            <Button
+                android:layout_alignParentRight="true"
+                style="?android:borderlessButtonStyle"
                 android:drawableTop="@drawable/ic_baseline_add_24"
                 android:id="@+id/list_alarm"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:textSize="9sp"
+                android:textSize="7sp"
                 android:text="상단바"/>
             <Button
                 android:layout_alignParentRight="true"
                 style="?android:borderlessButtonStyle"
                 android:drawableTop="@drawable/ic_delete_24"
                 android:id="@+id/list_delete"
-                android:layout_width="50dp"
+                android:layout_width="45dp"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="7sp"
                 android:text="삭제"/>
         </LinearLayout>
 

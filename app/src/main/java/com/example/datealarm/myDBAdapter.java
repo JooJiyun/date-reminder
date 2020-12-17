@@ -79,6 +79,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
         Button btn = convertView.findViewById(R.id.list_delete);
         Button btn_color = convertView.findViewById(R.id.list_icon);
         Button btn_alarm = convertView.findViewById(R.id.list_alarm);
+        Button btn_notifyRemove = convertView.findViewById(R.id.list_notifyRemove);
 
         for (Drawable drawable : btn_color.getCompoundDrawables()) {
             if (drawable != null) {
@@ -95,6 +96,9 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
 
         btn_alarm.setTag(position);
         btn_alarm.setOnClickListener(this);
+
+        btn_notifyRemove.setTag(position);
+        btn_notifyRemove.setOnClickListener(this);
 
 
         return convertView;
