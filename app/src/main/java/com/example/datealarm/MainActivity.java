@@ -4,14 +4,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +20,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements myDBAdapter.ListBtnClickListener {
 
@@ -86,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
         switch (resourceid){
             case R.id.list_delete:
+                Toast.makeText(getApplicationContext(), "D-day 제거",Toast.LENGTH_SHORT).show();
+                removeNotification(position);
                 dbHelper.delete(selected.getName());
                 break;
             case R.id.list_alarm:
@@ -150,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
 
-        builder.setSmallIcon(R.drawable.ic_callendar_24);
+        builder.setSmallIcon(R.drawable.ic_calendar_24);
         builder.setColor(color);
         builder.setContentTitle(title + " " + D_dayText);
         builder.setAutoCancel(true);
