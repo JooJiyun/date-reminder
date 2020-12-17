@@ -11,6 +11,6 @@
 
 <div>
 <img width = "200" src = "https://github.com/JooJiyun/date-reminder/blob/main/screenshot/insertDate.jpg">
-<img width = "200" src = "https://github.com/JooJiyun/date-reminder/blob/main/screenshot/inesrtByDate.jpg">
-<img width = "200" src = "https://github.com/JooJiyun/date-reminder/blob/main/screenshot/inesrtByLast.jpg">
+<img width = "200" src = "https://github.com/JooJiyun/date-reminder/blob/main/screenshot/insertByDate.jpg">
+<img width = "200" src = "https://github.com/JooJiyun/date-reminder/blob/main/screenshot/insertByLast.jpg">
 </div>
