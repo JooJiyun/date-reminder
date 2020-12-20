@@ -1,6 +1,7 @@
 package com.example.datealarm;
 
 public class myDB {
+    private  int _id;
     private String name;
     private String date;
     private int color;
@@ -18,6 +19,21 @@ public class myDB {
         this.name = name;
         this.date = date;
         this.color = color;
+    }
+
+    public myDB(int _id, String name, String date, int color) {
+        this._id = _id;
+        this.name = name;
+        this.date = date;
+        this.color = color;
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 
     public String getName() {

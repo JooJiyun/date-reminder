@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         main_add = findViewById(R.id.main_add);
 
 
-        dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,2);
+        dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,3);
 
         update_list();
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
     }
 
-    public void update_list(){
+    private void update_list(){
         dbList = dbHelper.getALLData();
         myDBAdapter adapter = new myDBAdapter(this, R.layout.list_item, dbList, this);
         ListView main_list = findViewById(R.id.main_list);
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
         switch (resourceid){
             case R.id.list_delete:
                 Toast.makeText(getApplicationContext(), "D-day 제거",Toast.LENGTH_SHORT).show();
-                removeNotification(position);
+                removeNotification(selected.get_id());
                 dbHelper.delete(selected.getName());
                 break;
             case R.id.list_alarm:
@@ -91,9 +91,10 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
                 String title = selected.getName();
                 String date = selected.getDate();
                 int color = selected.getColor();
+                int _id = selected.get_id();
 
 
-                createNotification(title, date, color, position);
+                createNotification(title, date, color, _id);
 
                 break;
             case R.id.list_icon:
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
             case R.id.list_notifyRemove:
                 Toast.makeText(getApplicationContext(), "notification 제거",Toast.LENGTH_SHORT).show();
-                removeNotification(position);
+                removeNotification(selected.get_id());
                 break;
         }
         update_list();
@@ -124,32 +125,11 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
     private void createNotification(String title, String date, int color, int _id) {
 
-        String D_dayText = "";
-        Date now = new Date(System.currentTimeMillis());
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy.MM.dd");
-        String today = dateFormat.format(now);
-        try {
-            Date firstDate = dateFormat.parse(today);
-            Date secondDate = dateFormat.parse(date);
-
-            long calDate = secondDate.getTime()-firstDate.getTime();
-            long calDays = calDate/(24*60*60*1000);
-
-            if(calDays<0){
-                D_dayText = "D+"+Math.abs(calDays);
-            }
-            else{
-                D_dayText = "D-"+calDays;
-            }
-
-        }catch(ParseException e){}
-
-
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
 
         builder.setSmallIcon(R.drawable.ic_calendar_24);
         builder.setColor(color);
-        builder.setContentTitle(title + " " + D_dayText);
+        builder.setContentTitle(title + " " + date);
         builder.setAutoCancel(true);
         builder.setOngoing(true);
 

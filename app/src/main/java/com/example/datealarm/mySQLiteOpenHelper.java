@@ -47,7 +47,7 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
         ArrayList result = new ArrayList<myDB>();
         Cursor cursor = db.rawQuery("SELECT * FROM ALARM",null);
         while(cursor.moveToNext()){
-            result.add(new myDB(cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
+            result.add(new myDB(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
         }
         return result;
     }

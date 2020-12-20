@@ -24,7 +24,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
 
         add_insert = findViewById(R.id.add_insert);
 
-        final mySQLiteOpenHelper dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,2);
+        final mySQLiteOpenHelper dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,3);
 
         add_insert.setOnClickListener(new View.OnClickListener() {
             @Override
