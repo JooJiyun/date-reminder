@@ -29,14 +29,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="D-day 이름 : "
+                android:text="@string/date_name"
                 android:textColor="@color/colorBlack"/>
             <EditText
                 android:id="@+id/add_name"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:hint="10글자 이내"
+                android:hint="@string/input_limit"
                 android:textAlignment="center"
                 android:textColorHint="@color/transparent"
                 android:backgroundTint="@color/colorBlack"
@@ -59,33 +58,35 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="년"
+                android:text="@string/year"
+                android:paddingRight="5dp"
                 android:textColor="@color/colorBlack"/>
 
             <EditText
                 android:id="@+id/add_month"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="00"
                 android:backgroundTint="@color/colorBlack"
                 android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="월"
+                android:text="@string/month"
+                android:paddingRight="5dp"
                 android:textColor="@color/colorBlack"/>
 
             <EditText
                 android:id="@+id/add_day"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="00"
                 android:backgroundTint="@color/colorBlack"
                 android:textColor="@color/colorBlack"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="일"
+                android:text="@string/day"
                 android:textColor="@color/colorBlack"/>
         </LinearLayout>
 
@@ -99,7 +100,7 @@
                 android:id="@+id/add_insert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="완료"
+                android:text="@string/submit"
                 android:drawableTint="@color/colorBlack"
                 android:textColor="@color/colorBlack"/>
         </LinearLayout>

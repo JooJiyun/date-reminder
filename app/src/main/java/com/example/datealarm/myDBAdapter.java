@@ -69,6 +69,9 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
             if(calDays<0){
                 list_last.setText("D+"+Math.abs(calDays));
             }
+            else if(calDays==0){
+                list_date.setText("Today!");
+            }
             else{
                 list_last.setText("D-"+calDays);
             }

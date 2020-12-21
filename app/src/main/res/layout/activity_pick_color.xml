@@ -22,7 +22,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\n색상 선택\n"
+            android:text="@string/color_selection"
+            android:paddingTop="12dp"
+            android:paddingBottom="10dp"
             android:textColor="@color/colorBlack"/>
         <LinearLayout
             android:layout_width="match_parent"

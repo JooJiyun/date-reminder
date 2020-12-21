@@ -35,11 +35,11 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                 String name = add_name.getText().toString();
 
                 if(name == null || name.trim().length() == 0){
-                    Toast.makeText(getApplicationContext(), "이름이 입력되지 않았습니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.nameIsNull),Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(name.length()>10) {
-                    Toast.makeText(getApplicationContext(), "이름이 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.nameIsLong), Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -48,15 +48,15 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                 boolean DayIsNumeric =  add_day.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
 
                 if(!YearIsNumeric||(add_year.getText().toString().trim().length()==0)){
-                    Toast.makeText(getApplicationContext(), "년도를 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.check_year),Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(!MonthIsNumeric||(add_month.getText().toString().trim().length()==0)){
-                    Toast.makeText(getApplicationContext(), "월을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.check_month),Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(!DayIsNumeric||(add_day.getText().toString().trim().length()==0)){
-                    Toast.makeText(getApplicationContext(), "일을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.check_day),Toast.LENGTH_SHORT).show();
                     return;
                 }
 

@@ -29,14 +29,10 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
     ArrayList dbList = null;
     String chg_target;
 
-    Context context;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        context = this;
 
 
         main_today = findViewById(R.id.main_today);
@@ -81,30 +77,28 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
         switch (resourceid){
             case R.id.list_delete:
-                Toast.makeText(getApplicationContext(), "D-day 제거",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getText(R.string.delete_date), Toast.LENGTH_SHORT).show();
                 removeNotification(selected.get_id());
                 dbHelper.delete(selected.getName());
                 break;
             case R.id.list_alarm:
-                Toast.makeText(getApplicationContext(), "notification 추가",Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(getApplicationContext(), "notification 추가",Toast.LENGTH_SHORT).show();
                 String title = selected.getName();
                 String date = selected.getDate();
                 int color = selected.getColor();
                 int _id = selected.get_id();
 
-
                 createNotification(title, date, color, _id);
 
                 break;
             case R.id.list_icon:
-                Toast.makeText(getApplicationContext(), "색상 변경",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "색상 변경",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), PickColorActivity.class);
                 startActivityForResult(intent, 0);
                 break;
 
             case R.id.list_notifyRemove:
-                Toast.makeText(getApplicationContext(), "notification 제거",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "notification 제거",Toast.LENGTH_SHORT).show();
                 removeNotification(selected.get_id());
                 break;
         }

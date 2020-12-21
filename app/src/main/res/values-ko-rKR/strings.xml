@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Date Reminder</string>
+    <string name="submit">완료</string>
+    <string name="notify">상단바</string>
+    <string name="add">추가</string>
+    <string name="delete">삭제</string>
+    <string name="insertion_type">날짜 선택 타입</string>
+    <string name="Select_by_date">날짜로 선택</string>
+    <string name="Select_by_remaining">남은 날짜로 선택</string>
+    <string name="date_name">"D-day 이름 : "</string>
+    <string name="year">년</string>
+    <string name="month">월</string>
+    <string name="day">일</string>
+    <string name="years_later">년 후</string>
+    <string name="months_later">월 후</string>
+    <string name="days_later">일 후</string>
+    <string name="input_limit">10글자 이내</string>
+    <string name="color_selection">색상 선택</string>
+    <string name="delete_date">D-day 제거</string>
+    <string name="nameIsNull">이름이 너무 짧습니다.</string>
+    <string name="nameIsLong">이름이 너무 깁니다.</string>
+    <string name="check_year">입력된 연도를 확인해주세요.</string>
+    <string name="check_month">입력된 월을 확인해주세요.</string>
+    <string name="check_day">입력된 일을 확인해주세요.</string>
+</resources>

@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Date Reminder</string>
+    <string name="submit">submit</string>
+    <string name="notify">notify</string>
+    <string name="add">add</string>
+    <string name="delete">delete</string>
+    <string name="insertion_type">Select date input type</string>
+    <string name="Select_by_date">Select by date</string>
+    <string name="Select_by_remaining">Select by remaining days</string>
+    <string name="date_name">D-day name :</string>
+    <string name="year">year</string>
+    <string name="month">month</string>
+    <string name="day">day</string>
+    <string name="years_later">years later</string>
+    <string name="months_later">months later</string>
+    <string name="days_later">days later</string>
+    <string name="input_limit">Within 10 characters</string>
+    <string name="color_selection">Color selection</string>
+    <string name="delete_date">delete D-day</string>
+    <string name="nameIsNull">The name is too short.</string>
+    <string name="nameIsLong">The name is too long</string>
+    <string name="check_year">Please check the entered year.</string>
+    <string name="check_month">Please check the entered month.</string>
+    <string name="check_day">Please check the entered day.</string>
 </resources>
