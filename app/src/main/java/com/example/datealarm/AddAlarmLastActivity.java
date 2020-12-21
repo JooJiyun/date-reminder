@@ -14,7 +14,6 @@ import java.util.Date;
 
 public class AddAlarmLastActivity extends AppCompatActivity {
 
-    EditText add_name, add_year, add_month, add_day;
     Button add_insert;
 
     @Override
@@ -29,14 +28,35 @@ public class AddAlarmLastActivity extends AppCompatActivity {
         add_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                add_year = findViewById(R.id.add_year);
-                add_month = findViewById(R.id.add_month);
-                add_day = findViewById(R.id.add_day);
-                add_name = findViewById(R.id.add_name);
+                EditText add_year = findViewById(R.id.add_year);
+                EditText add_month = findViewById(R.id.add_month);
+                EditText add_day = findViewById(R.id.add_day);
+                EditText add_name = findViewById(R.id.add_name);
                 String name = add_name.getText().toString();
 
                 if(name == null || name.trim().length() == 0){
                     Toast.makeText(getApplicationContext(), "이름이 입력되지 않았습니다.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(name.length()>10) {
+                    Toast.makeText(getApplicationContext(), "이름이 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                boolean YearIsNumeric =  add_year.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
+                boolean MonthIsNumeric =  add_month.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
+                boolean DayIsNumeric =  add_day.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
+
+                if(!YearIsNumeric||(add_year.getText().toString().trim().length()==0)){
+                    Toast.makeText(getApplicationContext(), "년도를 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!MonthIsNumeric||(add_month.getText().toString().trim().length()==0)){
+                    Toast.makeText(getApplicationContext(), "월을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!DayIsNumeric||(add_day.getText().toString().trim().length()==0)){
+                    Toast.makeText(getApplicationContext(), "일을 확인해주세요.",Toast.LENGTH_SHORT).show();
                     return;
                 }
 

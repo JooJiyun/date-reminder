@@ -14,7 +14,6 @@ import java.util.Date;
 
 public class AddAlarmDateActivity extends AppCompatActivity {
 
-    EditText add_name, add_year, add_month, add_day;
     Button add_insert;
 
     @Override
@@ -30,18 +29,76 @@ public class AddAlarmDateActivity extends AppCompatActivity {
         add_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                add_year = findViewById(R.id.add_year);
-                add_month = findViewById(R.id.add_month);
-                add_day = findViewById(R.id.add_day);
-                add_name = findViewById(R.id.add_name);
+
+                EditText add_name = findViewById(R.id.add_name);
                 String name = add_name.getText().toString();
 
                 if(name == null || name.trim().length() == 0){
                     Toast.makeText(getApplicationContext(), "이름이 입력되지 않았습니다.",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(name.length()>10) {
+                    Toast.makeText(getApplicationContext(), "이름이 너무 깁니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                String DDay = String.format("%4d.%2d.%2d", Integer.parseInt(add_year.getText().toString()),Integer.parseInt(add_month.getText().toString()),Integer.parseInt(add_day.getText().toString()));
+
+                EditText add_year = findViewById(R.id.add_year);
+                EditText add_month = findViewById(R.id.add_month);
+                EditText add_day = findViewById(R.id.add_day);
+
+                boolean YearIsNumeric =  add_year.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
+                boolean MonthIsNumeric =  add_month.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
+                boolean DayIsNumeric =  add_day.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
+
+                if(!YearIsNumeric||(add_year.getText().toString().trim().length()==0)){
+                    Toast.makeText(getApplicationContext(), "년도를 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!MonthIsNumeric||(add_month.getText().toString().trim().length()==0)){
+                    Toast.makeText(getApplicationContext(), "월을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!DayIsNumeric||(add_day.getText().toString().trim().length()==0)){
+                    Toast.makeText(getApplicationContext(), "일을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                int this_year = Integer.parseInt(add_year.getText().toString());
+                int this_month = Integer.parseInt(add_month.getText().toString());
+                int this_day = Integer.parseInt(add_day.getText().toString());
+
+                if((this_year<0)||(this_year>3000)){
+                    Toast.makeText(getApplicationContext(), "년도를 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if((this_month<=0)||(this_month>12)){
+                    Toast.makeText(getApplicationContext(), "월을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if((this_month==1)||(this_month==3)||(this_month==5)||(this_month==7)||(this_month==8)||(this_month==10)||(this_month==12)){
+                    if((this_day<=0)||(this_day>30)){
+                        Toast.makeText(getApplicationContext(), "일을 확인해주세요.",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+                else if((this_month==4)||(this_month==6)||(this_month==9)||(this_month==10)||(this_month==11)){
+                    if((this_day<=0)||(this_day>30)){
+                        Toast.makeText(getApplicationContext(), "일을 다시 확인해주세요.",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+                else if(this_month==2){
+                    int limit_day = 28;
+                    if(this_year % 4 == 0 && this_year % 100 != 0 || this_year % 400 == 0){limit_day= 29;}
+                    if((this_day<=0)||(this_day>limit_day)){
+                        Toast.makeText(getApplicationContext(), "일을 다시 확인해주세요.",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                String DDay = String.format("%4d.%2d.%2d", this_year,this_month,this_day);
 
                 dbHelper.insert(name, DDay);
                 finish();
