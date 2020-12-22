@@ -1,4 +1,4 @@
-package com.example.datealarm;
+package com.datereminder.datealarm;
 
 import org.junit.Test;
 

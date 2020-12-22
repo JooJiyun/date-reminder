@@ -23,4 +23,8 @@
     <string name="check_year">입력된 연도를 확인해주세요.</string>
     <string name="check_month">입력된 월을 확인해주세요.</string>
     <string name="check_day">입력된 일을 확인해주세요.</string>
+    <string name="admob_app_id">ca-app-pub-7035570046639855~3117443732</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7035570046639855/8777976287</string>
+    <string name="banner_ad_unit_id_for_test">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ad">광고</string>
 </resources>

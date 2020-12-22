@@ -1,4 +1,4 @@
-package com.example.datealarm;
+package com.datereminder.datealarm;
 
 import androidx.appcompat.app.AppCompatActivity;
 

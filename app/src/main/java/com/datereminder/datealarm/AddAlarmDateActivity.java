@@ -1,4 +1,4 @@
-package com.example.datealarm;
+package com.datereminder.datealarm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class AddAlarmDateActivity extends AppCompatActivity {
 
