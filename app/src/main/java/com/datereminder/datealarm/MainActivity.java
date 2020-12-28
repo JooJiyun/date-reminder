@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements myDBAdapter.ListB
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default");
 
-        builder.setSmallIcon(R.drawable.ic_calendar_24);
+        builder.setSmallIcon(R.drawable.ic_event_date);
         builder.setColor(color);
         builder.setContentTitle(title + " " + date);
         builder.setAutoCancel(true);

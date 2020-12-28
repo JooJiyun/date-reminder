@@ -51,9 +51,10 @@
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/add_year"
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0000"
+                    android:gravity="center_horizontal"
                     android:backgroundTint="@color/colorBlack"
                     android:textColor="@color/colorBlack"/>
                 <TextView
@@ -70,9 +71,10 @@
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/add_month"
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0000"
+                    android:gravity="center_horizontal"
                     android:backgroundTint="@color/colorBlack"
                     android:textColor="@color/colorBlack"/>
                 <TextView
@@ -88,9 +90,10 @@
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/add_day"
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0000"
+                    android:gravity="center_horizontal"
                     android:backgroundTint="@color/colorBlack"
                     android:textColor="@color/colorBlack"/>
                 <TextView

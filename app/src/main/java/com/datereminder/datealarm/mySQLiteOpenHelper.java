@@ -21,8 +21,8 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS ALARM");
-        onCreate(db);
+        //db.execSQL("DROP TABLE IF EXISTS ALARM");
+        //onCreate(db);
     }
 
     public void insert(String name, String date, int i_color){

@@ -6,11 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddAlarmDateActivity extends AppCompatActivity {
 
-    Button add_insert;
+    private Button add_insert;
+    private EditText add_year, add_month, add_day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +25,19 @@ public class AddAlarmDateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_alarm_date);
 
 
-        add_insert = findViewById(R.id.add_insert);
+        add_year = findViewById(R.id.add_year);
+        add_month = findViewById(R.id.add_month);
+        add_day = findViewById(R.id.add_day);
+
+        Date today = new Date(System.currentTimeMillis());
+        add_year.setText(new SimpleDateFormat("yyyy").format(today));
+        add_month.setText(new SimpleDateFormat("MM").format(today));
+        add_day.setText(new SimpleDateFormat("dd").format(today));
+
 
         final mySQLiteOpenHelper dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,3);
 
+        add_insert = findViewById(R.id.add_insert);
         add_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,11 +53,6 @@ public class AddAlarmDateActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), getText(R.string.nameIsLong), Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-
-                EditText add_year = findViewById(R.id.add_year);
-                EditText add_month = findViewById(R.id.add_month);
-                EditText add_day = findViewById(R.id.add_day);
 
                 boolean YearIsNumeric =  add_year.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
                 boolean MonthIsNumeric =  add_month.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
@@ -94,7 +105,9 @@ public class AddAlarmDateActivity extends AppCompatActivity {
                     }
                 }
 
+
                 String DDay = String.format("%4d.%2d.%2d", this_year,this_month,this_day);
+                DDay = DDay.replace(' ','0');
 
                 dbHelper.insert(name, DDay);
                 finish();
