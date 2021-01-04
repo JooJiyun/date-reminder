@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class PickColorActivity extends AppCompatActivity {
 
-    ArrayList<Integer> colors;
-    Button color_pick1, color_pick2, color_pick3, color_pick4, color_pick5;
-    Button color_pick6, color_pick7, color_pick8, color_pick9, color_pick10;
-    Button color_pick11, color_pick12, color_pick13, color_pick14, color_pick15;
+    private ArrayList<Integer> colors;
+    private Button color_pick1, color_pick2, color_pick3, color_pick4, color_pick5;
+    private Button color_pick6, color_pick7, color_pick8, color_pick9, color_pick10;
+    private Button color_pick11, color_pick12, color_pick13, color_pick14, color_pick15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

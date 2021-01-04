@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class PickAlarmTypeActivity extends AppCompatActivity {
 
-    Button pick_date, pick_last;
+    private Button pick_date, pick_last;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

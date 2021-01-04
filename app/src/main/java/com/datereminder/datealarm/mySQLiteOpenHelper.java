@@ -41,6 +41,11 @@ public class mySQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM ALARM WHERE name='"+name+"';");
         db.close();
     }
+    public void delete(int _id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM ALARM WHERE _id="+_id+";");
+        db.close();
+    }
 
     public ArrayList getALLData(){
         SQLiteDatabase db = getReadableDatabase();

@@ -29,6 +29,7 @@ public class AddAlarmDateActivity extends AppCompatActivity {
         add_month = findViewById(R.id.add_month);
         add_day = findViewById(R.id.add_day);
 
+        // for initial d-day date ( = today)
         Date today = new Date(System.currentTimeMillis());
         add_year.setText(new SimpleDateFormat("yyyy").format(today));
         add_month.setText(new SimpleDateFormat("MM").format(today));
@@ -37,6 +38,7 @@ public class AddAlarmDateActivity extends AppCompatActivity {
 
         final mySQLiteOpenHelper dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,3);
 
+        // submit button, listener
         add_insert = findViewById(R.id.add_insert);
         add_insert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +47,7 @@ public class AddAlarmDateActivity extends AppCompatActivity {
                 EditText add_name = findViewById(R.id.add_name);
                 String name = add_name.getText().toString();
 
+                // D-day name requirement
                 if(name == null || name.trim().length() == 0){
                     Toast.makeText(getApplicationContext(), getText(R.string.nameIsNull),Toast.LENGTH_SHORT).show();
                     return;
@@ -54,6 +57,7 @@ public class AddAlarmDateActivity extends AppCompatActivity {
                     return;
                 }
 
+                // D-day date requirement
                 boolean YearIsNumeric =  add_year.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
                 boolean MonthIsNumeric =  add_month.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
                 boolean DayIsNumeric =  add_day.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
@@ -85,7 +89,7 @@ public class AddAlarmDateActivity extends AppCompatActivity {
                     return;
                 }
                 if((this_month==1)||(this_month==3)||(this_month==5)||(this_month==7)||(this_month==8)||(this_month==10)||(this_month==12)){
-                    if((this_day<=0)||(this_day>30)){
+                    if((this_day<=0)||(this_day>31)){
                         Toast.makeText(getApplicationContext(), getText(R.string.check_day),Toast.LENGTH_SHORT).show();
                         return;
                     }

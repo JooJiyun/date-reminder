@@ -14,17 +14,18 @@ import java.util.Date;
 
 public class AddAlarmLastActivity extends AppCompatActivity {
 
-    Button add_insert;
+    private Button add_insert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_alarm_last);
 
-        add_insert = findViewById(R.id.add_insert);
+        add_insert = findViewById(R.id.add_insert); // submit button
 
         final mySQLiteOpenHelper dbHelper = new mySQLiteOpenHelper(getApplicationContext(), "ALARM.db",null,3);
 
+        // submit button listener
         add_insert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +35,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                 EditText add_name = findViewById(R.id.add_name);
                 String name = add_name.getText().toString();
 
+                // D-day name requirement
                 if(name == null || name.trim().length() == 0){
                     Toast.makeText(getApplicationContext(), getText(R.string.nameIsNull),Toast.LENGTH_SHORT).show();
                     return;
@@ -43,6 +45,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                     return;
                 }
 
+                // D-day date requirement
                 boolean YearIsNumeric =  add_year.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
                 boolean MonthIsNumeric =  add_month.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
                 boolean DayIsNumeric =  add_day.getText().toString().matches("[+-]?\\d*(\\.\\d+)?");
@@ -60,7 +63,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                     return;
                 }
 
-
+                // add date
                 Calendar cal = Calendar.getInstance();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
                 cal.setTime(new Date());
@@ -69,6 +72,7 @@ public class AddAlarmLastActivity extends AppCompatActivity {
                 cal.add(Calendar.DATE, Integer.parseInt(add_day.getText().toString()));
 
 
+                // insert db
                 dbHelper.insert(name, dateFormat.format(cal.getTime()).toString());
                 finish();
             }

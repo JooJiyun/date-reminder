@@ -57,6 +57,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
         String today = dateFormat.format(now);
         String target_date = list_db.getDate();
 
+        // calculate remain days in list view
         try {
             Date firstDate = dateFormat.parse(today);
             Date secondDate = dateFormat.parse(target_date);
@@ -82,6 +83,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
         Button btn_alarm = convertView.findViewById(R.id.list_alarm);
         Button btn_notifyRemove = convertView.findViewById(R.id.list_notifyRemove);
 
+        // D-day icon color set
         for (Drawable drawable : btn_color.getCompoundDrawables()) {
             if (drawable != null) {
                 drawable.setColorFilter(new PorterDuffColorFilter(list_color, PorterDuff.Mode.SRC_IN));
@@ -105,6 +107,7 @@ public class myDBAdapter extends ArrayAdapter implements View.OnClickListener {
         return convertView;
     }
 
+    // button listeners work in MainActivity
     @Override
     public void onClick(View view){
         if (this.listBtnClickListener != null) {
